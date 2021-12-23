@@ -20,6 +20,7 @@ public:
     QMediaPlayer *sound;
 protected:
     void mouseMoveEvent(QMouseEvent *e);//鼠标移动
+    void mouseReleaseEvent(QMouseEvent *e);//鼠标释放
     void mousePressEvent(QMouseEvent *e);//鼠标按下移动
 private slots:
     void on_toolButton_close_clicked();
@@ -30,6 +31,7 @@ signals:
 private:
     Ui::Setting *ui;
     QPoint p;
+    bool isPressing = false;
 
 };
 

@@ -3,7 +3,7 @@
 #include <QPoint>
 #include <QMouseEvent>
 #include <QMediaPlayer>
-
+#include <QMessageBox>
 Setting::Setting(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Setting)
@@ -30,12 +30,18 @@ void Setting::mousePressEvent(QMouseEvent *e)
         //求坐标差值
         //当前点击坐标-窗口左上角坐标
         p = e->globalPos() - this->frameGeometry().topLeft();
+        isPressing = true;
     }
+}
+void Setting::mouseReleaseEvent(QMouseEvent *e)
+{
+    Q_UNUSED(e);
+    isPressing = false;
 }
 
 void Setting::mouseMoveEvent(QMouseEvent *e)
 {
-    if(e->buttons() & Qt::LeftButton)
+    if(e->buttons() & Qt::LeftButton && isPressing)
     {
         //移到左上角
         move(e->globalPos() - p);
@@ -46,7 +52,17 @@ void Setting::mouseMoveEvent(QMouseEvent *e)
 void Setting::on_toolButton_close_clicked()
 {
     //弹窗判断是否确认退出游戏
-    close();
+    QMessageBox::StandardButton result = QMessageBox::question(this,"","是否确认退出游戏？",QMessageBox::No|QMessageBox::Yes);
+    switch(result)
+    {
+    case QMessageBox::Yes:
+        close();
+        break;
+    case QMessageBox::No:
+        break;
+    default:
+        break;
+    }
 }
 
 

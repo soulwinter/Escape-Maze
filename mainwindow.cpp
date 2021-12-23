@@ -37,12 +37,18 @@ void MainWindow::mousePressEvent(QMouseEvent *e)
         //求坐标差值
         //当前点击坐标-窗口左上角坐标
         p = e->globalPos() - this->frameGeometry().topLeft();
+        isPressing = true;
     }
+}
+void MainWindow::mouseReleaseEvent(QMouseEvent *e)
+{
+    Q_UNUSED(e);
+    isPressing = false;
 }
 
 void MainWindow::mouseMoveEvent(QMouseEvent *e)
 {
-    if(e->buttons() & Qt::LeftButton)
+    if(e->buttons() & Qt::LeftButton && isPressing)
     {
         //移到左上角
         move(e->globalPos() - p);
@@ -58,7 +64,18 @@ void MainWindow::on_toolButton_minimize_clicked()
 
 void MainWindow::on_toolButton_close_clicked()
 {
-    close();
+    //弹窗判断是否确认退出登录
+    QMessageBox::StandardButton result = QMessageBox::question(this,"","是否确认退出登录？",QMessageBox::No|QMessageBox::Yes);
+    switch(result)
+    {
+    case QMessageBox::Yes:
+        close();
+        break;
+    case QMessageBox::No:
+        break;
+    default:
+        break;
+    }
 }
 
 /*void MainWindow::on_toolButton_maxmize_clicked()
@@ -78,7 +95,7 @@ void MainWindow::on_pushButton_login_clicked()
     }
     else
     {
-        QMessageBox::warning(this, tr("警告"),tr("账号或密码错误！"),QMessageBox::Yes);
+        QMessageBox::warning(this,"警告","账号或密码错误！",QMessageBox::Yes);
 
         // 清空密码输入框内容
         ui->lineEdit_password->clear();

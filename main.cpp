@@ -3,8 +3,10 @@
 #include "introduction.h"
 #include "setting.h"
 #include "startgame.h"
+#include "generatemaze.h"
 #include <QMediaPlayer>
 #include <QApplication>
+
 
 int main(int argc, char *argv[])
 {
@@ -22,5 +24,8 @@ int main(int argc, char *argv[])
     QObject::connect(&wSet,SIGNAL(showMain()),&wMain,SLOT(receiveSet()));
     QObject::connect(&wSG,SIGNAL(showMain()),&wMain,SLOT(receiveSG()));*/
 
+//    init(G , &start);
+//    FindBlock(x_num , y_num , m , n , &myblock , G);
+//    GenerateMap(G, &start ,x_num ,  y_num , m , n ,myblock );
     return a.exec();
 }

@@ -21,7 +21,7 @@ font-style:MingLiU-ExtB;
 }
 QFrame{
 border:sold 10px rgba(0,0,0);
-background-image:url(&quot;:/OIP-C.jfif&quot;);/*背景*/
+background-image:url(&quot;path.jpeg&quot;);/*背景*/
 }
 QLineEdit{
 color:#8d98a1;
@@ -58,7 +58,7 @@ font-style:MingLiU-ExtB;
 }
 QLabel{
 background:rgba(85,170,255,0);
-color:white;
+color:darkblue;
 font-style:MingLiU-ExtB;
 font-size:14px;
 }
@@ -121,7 +121,7 @@ font-size:14px;
     <widget class="QCheckBox" name="checkBox">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>140</x>
        <y>260</y>
        <width>91</width>
        <height>21</height>
@@ -216,6 +216,28 @@ font-size:14px;
      </property>
      <property name="scaledContents">
       <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_login">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>260</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <italic>true</italic>
+       <bold>true</bold>
+       <underline>true</underline>
+      </font>
+     </property>
+     <property name="text">
+      <string>注册</string>
      </property>
     </widget>
    </widget>

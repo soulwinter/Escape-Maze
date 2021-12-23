@@ -23,6 +23,7 @@ public:
 protected:
     void mouseMoveEvent(QMouseEvent *e);//鼠标移动
     void mousePressEvent(QMouseEvent *e);//鼠标按下移动
+    void mouseReleaseEvent(QMouseEvent *e);//鼠标释放
 private slots:
     void on_toolButton_minimize_clicked();
     //void on_toolButton_maxmize_clicked();
@@ -40,6 +41,7 @@ signals:
 private:
     Ui::Mainwidget *ui;
     QPoint p;
+    bool isPressing = false;
 
 };
 

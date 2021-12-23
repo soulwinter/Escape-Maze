@@ -1,23 +1,23 @@
-#ifndef STARTGAME_H
-#define STARTGAME_H
+#ifndef LEVEL_LOW_H
+#define LEVEL_LOW_H
 
 #include <QWidget>
-#include "mainwidget.h"
-#include "level_low.h"
+//#include "mainwidget.h"
+#include "startgame.h"
+#include "generatemaze.h"
 #include <QSound>
 #include <QMediaPlayer>
-
 namespace Ui {
-class StartGame;
+class level_low;
 }
 
-class StartGame : public QWidget
+class level_low : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit StartGame(QWidget *parent = nullptr);
-    ~StartGame();
+    explicit level_low(QWidget *parent = nullptr);
+    ~level_low();
     QMediaPlayer *sound;
 protected:
     void mouseMoveEvent(QMouseEvent *e);//鼠标移动
@@ -25,17 +25,17 @@ protected:
     void mouseReleaseEvent(QMouseEvent *e);//鼠标释放
 private slots:
     void on_toolButton_back_clicked();
+
     void on_toolButton_close_clicked();
-    /*void receiveMain();
-signals:
-    void showMain();*/
-    void on_pushButton_low_clicked();
 
 private:
-    Ui::StartGame *ui;
+    Ui::level_low *ui;
     QPoint p;
     bool isPressing = false;
+    QTimer *timer;
+    void Timeout();
+    void paintEvent(QPaintEvent *event);
 
 };
 
-#endif // STARTGAME_H
+#endif // LEVEL_LOW_H

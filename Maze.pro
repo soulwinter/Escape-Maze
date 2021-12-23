@@ -11,7 +11,9 @@ CONFIG += resources_big
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    generatemaze.cpp \
     introduction.cpp \
+    level_low.cpp \
     main.cpp \
     mainwidget.cpp \
     mainwindow.cpp \
@@ -19,7 +21,9 @@ SOURCES += \
     startgame.cpp
 
 HEADERS += \
+    generatemaze.h \
     introduction.h \
+    level_low.h \
     mainwidget.h \
     mainwindow.h \
     setting.h \
@@ -27,6 +31,7 @@ HEADERS += \
 
 FORMS += \
     introduction.ui \
+    level_low.ui \
     mainwidget.ui \
     mainwindow.ui \
     setting.ui \

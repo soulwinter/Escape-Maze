@@ -22,6 +22,7 @@ public:
 protected:
     void mouseMoveEvent(QMouseEvent *e);//鼠标移动
     void mousePressEvent(QMouseEvent *e);//鼠标按下移动
+    void mouseReleaseEvent(QMouseEvent *e);//鼠标释放
 private slots:
     void on_toolButton_close_clicked();
     void on_toolButton_back_clicked();
@@ -31,6 +32,7 @@ signals:
 private:
     Ui::Introduction *ui;
     QPoint p;
+    bool isPressing = false;
 
 };
 
