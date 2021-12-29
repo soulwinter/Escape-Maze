@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>464</width>
-    <height>421</height>
+    <width>461</width>
+    <height>401</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -21,7 +24,7 @@ font-style:MingLiU-ExtB;
 }
 QFrame{
 border:sold 10px rgba(0,0,0);
-background-image:url(&quot;path.jpeg&quot;);/*背景*/
+background-image:url(&quot;&quot;);/*背景 :/780 (1).jfif */
 }
 QLineEdit{
 color:#8d98a1;
@@ -70,7 +73,7 @@ font-size:14px;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>471</width>
+      <width>461</width>
       <height>421</height>
      </rect>
     </property>
@@ -116,25 +119,6 @@ font-size:14px;
      </property>
      <property name="placeholderText">
       <string>密码</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="checkBox">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>260</y>
-       <width>91</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>华文行楷</family>
-       <pointsize>-1</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>记住密码</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_login">
@@ -199,41 +183,23 @@ font-size:14px;
       <string>+</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_logo">
+    <widget class="QPushButton" name="pushButton_login_2">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>40</y>
-       <width>91</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="resource.qrc">:/780.jfif</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_login">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>260</y>
-       <width>31</width>
-       <height>16</height>
+       <x>150</x>
+       <y>255</y>
+       <width>151</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
+       <family>华文行楷</family>
        <pointsize>-1</pointsize>
-       <weight>75</weight>
-       <italic>true</italic>
-       <bold>true</bold>
-       <underline>true</underline>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+       <underline>false</underline>
       </font>
      </property>
      <property name="text">
@@ -247,15 +213,13 @@ font-size:14px;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>464</width>
+     <width>461</width>
      <height>25</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="resource.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

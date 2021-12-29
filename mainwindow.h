@@ -5,7 +5,7 @@
 #include "mainwidget.h"
 #include <QSound>
 #include <QMediaPlayer>
-
+#include "account.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -39,5 +39,7 @@ private:
     bool isPressing = false;
 
     Mainwidget *M = new Mainwidget;
+
+    account accountDatabase;
 };
 #endif // MAINWINDOW_H

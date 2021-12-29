@@ -57,10 +57,10 @@ void Mainwidget::on_toolButton_minimize_clicked()
 }
 
 
-/*void Mainwidget::on_toolButton_maxmize_clicked()
-{
-    showMaximized();
-}*/
+//void Mainwidget::on_toolButton_maxmize_clicked()
+//{
+//    showFullScreen();
+//}
 
 void Mainwidget::on_toolButton_close_clicked()
 {

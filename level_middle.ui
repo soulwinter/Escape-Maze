@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>level_low</class>
- <widget class="QWidget" name="level_low">
+ <class>level_middle</class>
+ <widget class="QWidget" name="level_middle">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
-    <height>880</height>
+    <width>840</width>
+    <height>870</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true">
-</string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>850</width>
-     <height>880</height>
+     <width>840</width>
+     <height>870</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -48,7 +44,7 @@
    <widget class="QToolButton" name="toolButton_close">
     <property name="geometry">
      <rect>
-      <x>820</x>
+      <x>810</x>
       <y>0</y>
       <width>30</width>
       <height>30</height>
@@ -61,23 +57,14 @@
    <widget class="QToolButton" name="toolButton_help">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>290</x>
       <y>0</y>
       <width>40</width>
       <height>30</height>
      </rect>
     </property>
-    <property name="cursor">
-     <cursorShape>ArrowCursor</cursorShape>
-    </property>
     <property name="text">
      <string>Help</string>
-    </property>
-    <property name="checkable">
-     <bool>false</bool>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
     </property>
    </widget>
   </widget>

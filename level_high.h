@@ -1,5 +1,5 @@
-#ifndef LEVEL_LOW_H
-#define LEVEL_LOW_H
+#ifndef LEVEL_HIGH_H
+#define LEVEL_HIGH_H
 
 #include <QWidget>
 //#include "mainwidget.h"
@@ -10,16 +10,16 @@
 #include <QLabel>
 //#include <QKeyEvent>
 namespace Ui {
-class level_low;
+class level_high;
 }
 
-class level_low : public QWidget
+class level_high : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit level_low(QWidget *parent = nullptr);
-    ~level_low();
+    explicit level_high(QWidget *parent = nullptr);
+    ~level_high();
     QMediaPlayer *sound;
 protected:
     void mouseMoveEvent(QMouseEvent *e);//鼠标移动
@@ -28,14 +28,14 @@ protected:
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
     void Victory();
+    void Timeout();
 private slots:
     void on_toolButton_back_clicked();
 
     void on_toolButton_close_clicked();
 
-    void Timeout();
 private:
-    Ui::level_low *ui;
+    Ui::level_high *ui;
     QPoint p;
     bool isPressing = false;
     QTimer *timer;
@@ -43,7 +43,7 @@ private:
     QLabel *picLabel;
 
 
-    int m  = 15, n = 15;//墙的边界
+    int m  = 49, n = 49;//墙的边界
     int x , y;//墙的界限
     vector<block> myblock;//存储待处理的墙
     int x_num = 1, y_num = 1;//玩家起始位置
@@ -55,4 +55,4 @@ private:
     int pix_y;
 };
 
-#endif // LEVEL_LOW_H
+#endif // LEVEL_HIGH_H

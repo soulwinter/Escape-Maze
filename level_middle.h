@@ -1,5 +1,5 @@
-#ifndef LEVEL_LOW_H
-#define LEVEL_LOW_H
+#ifndef LEVEL_MIDDLE_H
+#define LEVEL_MIDDLE_H
 
 #include <QWidget>
 //#include "mainwidget.h"
@@ -9,17 +9,18 @@
 #include <QMediaPlayer>
 #include <QLabel>
 //#include <QKeyEvent>
+
 namespace Ui {
-class level_low;
+class level_middle;
 }
 
-class level_low : public QWidget
+class level_middle : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit level_low(QWidget *parent = nullptr);
-    ~level_low();
+    explicit level_middle(QWidget *parent = nullptr);
+    ~level_middle();
     QMediaPlayer *sound;
 protected:
     void mouseMoveEvent(QMouseEvent *e);//鼠标移动
@@ -28,14 +29,14 @@ protected:
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
     void Victory();
+    void Timeout();
 private slots:
     void on_toolButton_back_clicked();
 
     void on_toolButton_close_clicked();
 
-    void Timeout();
 private:
-    Ui::level_low *ui;
+    Ui::level_middle *ui;
     QPoint p;
     bool isPressing = false;
     QTimer *timer;
@@ -43,7 +44,7 @@ private:
     QLabel *picLabel;
 
 
-    int m  = 15, n = 15;//墙的边界
+    int m  = 33, n = 33;//墙的边界
     int x , y;//墙的界限
     vector<block> myblock;//存储待处理的墙
     int x_num = 1, y_num = 1;//玩家起始位置
@@ -55,4 +56,4 @@ private:
     int pix_y;
 };
 
-#endif // LEVEL_LOW_H
+#endif // LEVEL_MIDDLE_H

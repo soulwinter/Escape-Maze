@@ -4,11 +4,18 @@
 #include <QMouseEvent>
 #include <QMediaPlayer>
 #include <QMessageBox>
+//#include <account.h>
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+//    account accountDatabase;
+    accountDatabase.createNewTable();
+
     //去窗口边框
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());
 
@@ -88,7 +95,8 @@ void MainWindow::on_pushButton_login_clicked()
     sound->play();
 
     //验证账号密码
-    if(ui->lineEdit_username->text().trimmed() == ui->lineEdit_password->text().trimmed())
+    //if(accountDatabase.hasAccount( ui->lineEdit_username->text().trimmed().toInt(), ui->lineEdit_password->text()))
+    if(true)
     {
         M->show();
         hide();

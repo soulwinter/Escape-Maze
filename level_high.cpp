@@ -1,5 +1,5 @@
-#include "level_low.h"
-#include "ui_level_low.h"
+#include "level_high.h"
+#include "ui_level_high.h"
 #include <QPoint>
 #include <QMouseEvent>
 #include <QtDebug>
@@ -9,9 +9,9 @@
 #include <QMessageBox>
 #include <QKeyEvent>
 
-level_low::level_low(QWidget *parent) :
+level_high::level_high(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::level_low)
+    ui(new Ui::level_high)
 {
     ui->setupUi(this);
     //去窗口边框
@@ -41,12 +41,12 @@ level_low::level_low(QWidget *parent) :
     picLabel->setFocusPolicy(Qt::StrongFocus);
 }
 
-level_low::~level_low()
+level_high::~level_high()
 {
     delete ui;
 }
 
-void level_low::mousePressEvent(QMouseEvent *e)
+void level_high::mousePressEvent(QMouseEvent *e)
 {
     if(e->button() == Qt::LeftButton)
     {
@@ -57,13 +57,13 @@ void level_low::mousePressEvent(QMouseEvent *e)
     }
 }
 
-void level_low::mouseReleaseEvent(QMouseEvent *e)
+void level_high::mouseReleaseEvent(QMouseEvent *e)
 {
     Q_UNUSED(e);
     isPressing = false;
 }
 
-void level_low::mouseMoveEvent(QMouseEvent *e)
+void level_high::mouseMoveEvent(QMouseEvent *e)
 {
     if(e->buttons() & Qt::LeftButton && isPressing)
     {
@@ -73,7 +73,7 @@ void level_low::mouseMoveEvent(QMouseEvent *e)
 
 }
 
-void level_low::paintEvent(QPaintEvent *event)   //绘画事件
+void level_high::paintEvent(QPaintEvent *event)   //绘画事件
 {
 //    int I = m + 2, J = n + 2, X = 0, Y = 10;
     Q_UNUSED(event);
@@ -85,11 +85,11 @@ void level_low::paintEvent(QPaintEvent *event)   //绘画事件
         {
             if(G[i][j]==2)
             {
-                painter.drawPixmap(X + i * sizeOfRec, Y  + sizeOfRec * j, sizeOfRec, sizeOfRec, QPixmap(":/path.jpeg"));
+               painter.drawPixmap(X + i * sizeOfRec, Y  + sizeOfRec * j, sizeOfRec, sizeOfRec, QPixmap(":/path.jpeg"));
             }
             else if(G[i][j] == -1)
             {
-                painter.drawPixmap(X + i * sizeOfRec, Y  + sizeOfRec * j, sizeOfRec, sizeOfRec, QPixmap(":/wall.jpeg"));
+              painter.drawPixmap(X + i * sizeOfRec, Y  + sizeOfRec * j, sizeOfRec, sizeOfRec, QPixmap(":/wall.jpeg"));
             }
         }
     }
@@ -99,14 +99,14 @@ void level_low::paintEvent(QPaintEvent *event)   //绘画事件
 //        Victory();
 }
 
-void level_low::Timeout()  //定时器函数
+void level_high::Timeout()  //定时器函数
 {
     update();
     qDebug() << 111;
 
 }
 
-void level_low::keyPressEvent(QKeyEvent *event)
+void level_high::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key())
     {
@@ -145,10 +145,9 @@ void level_low::keyPressEvent(QKeyEvent *event)
     default:
         break;
     }
-
 }
 
-void level_low::Victory()
+void level_high::Victory()
 {
     QMessageBox::StandardButton result = QMessageBox::information(this,"","VICTORY!\n  本局战绩:\n用时:     \n拾取道具数:     \n被NPC捕捉次数:     ",QMessageBox::Yes);
     switch(result)
@@ -161,12 +160,12 @@ void level_low::Victory()
     }
 }
 
-void level_low::keyReleaseEvent(QKeyEvent *event)
+void level_high::keyReleaseEvent(QKeyEvent *event)
 {
 
 }
 
-void level_low::on_toolButton_back_clicked()
+void level_high::on_toolButton_back_clicked()
 {
     //弹窗判断是否确认退出游戏
     QMessageBox::StandardButton result = QMessageBox::question(this,"","是否返回？（将退出本次游戏）",QMessageBox::No|QMessageBox::Yes);
@@ -187,7 +186,7 @@ void level_low::on_toolButton_back_clicked()
     }
 }
 
-void level_low::on_toolButton_close_clicked()
+void level_high::on_toolButton_close_clicked()
 {
     //弹窗判断是否确认退出游戏
     QMessageBox::StandardButton result = QMessageBox::question(this,"","是否确认退出游戏？",QMessageBox::No|QMessageBox::Yes);
@@ -202,4 +201,3 @@ void level_low::on_toolButton_close_clicked()
         break;
     }
 }
-

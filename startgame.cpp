@@ -88,3 +88,30 @@ void StartGame::on_pushButton_low_clicked()
     close();
 }
 
+
+void StartGame::on_pushButton_mid_clicked()
+{
+    level_middle *L_M = new level_middle;
+    L_M->show();
+    sound->play();
+    close();
+}
+
+
+void StartGame::on_pushButton_high_clicked()
+{
+    level_high *L_H = new level_high;
+    L_H->show();
+    sound->play();
+    close();
+}
+
+
+void StartGame::on_pushButton_foggy_clicked()
+{
+    level_misty *L_F = new level_misty;
+    L_F->show();
+    sound->play();
+    close();
+}
+

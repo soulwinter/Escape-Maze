@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "mainwidget.h"
 #include "level_low.h"
+#include "level_high.h"
+#include "level_middle.h"
+#include "level_misty.h"
 #include <QSound>
 #include <QMediaPlayer>
 
@@ -25,11 +28,16 @@ protected:
     void mouseReleaseEvent(QMouseEvent *e);//鼠标释放
 private slots:
     void on_toolButton_back_clicked();
+
     void on_toolButton_close_clicked();
-    /*void receiveMain();
-signals:
-    void showMain();*/
+
     void on_pushButton_low_clicked();
+
+    void on_pushButton_mid_clicked();
+
+    void on_pushButton_high_clicked();
+
+    void on_pushButton_foggy_clicked();
 
 private:
     Ui::StartGame *ui;

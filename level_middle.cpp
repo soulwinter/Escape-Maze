@@ -1,5 +1,5 @@
-#include "level_low.h"
-#include "ui_level_low.h"
+#include "level_middle.h"
+#include "ui_level_middle.h"
 #include <QPoint>
 #include <QMouseEvent>
 #include <QtDebug>
@@ -9,9 +9,9 @@
 #include <QMessageBox>
 #include <QKeyEvent>
 
-level_low::level_low(QWidget *parent) :
+level_middle::level_middle(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::level_low)
+    ui(new Ui::level_middle)
 {
     ui->setupUi(this);
     //去窗口边框
@@ -41,12 +41,12 @@ level_low::level_low(QWidget *parent) :
     picLabel->setFocusPolicy(Qt::StrongFocus);
 }
 
-level_low::~level_low()
+level_middle::~level_middle()
 {
     delete ui;
 }
 
-void level_low::mousePressEvent(QMouseEvent *e)
+void level_middle::mousePressEvent(QMouseEvent *e)
 {
     if(e->button() == Qt::LeftButton)
     {
@@ -57,13 +57,13 @@ void level_low::mousePressEvent(QMouseEvent *e)
     }
 }
 
-void level_low::mouseReleaseEvent(QMouseEvent *e)
+void level_middle::mouseReleaseEvent(QMouseEvent *e)
 {
     Q_UNUSED(e);
     isPressing = false;
 }
 
-void level_low::mouseMoveEvent(QMouseEvent *e)
+void level_middle::mouseMoveEvent(QMouseEvent *e)
 {
     if(e->buttons() & Qt::LeftButton && isPressing)
     {
@@ -73,7 +73,7 @@ void level_low::mouseMoveEvent(QMouseEvent *e)
 
 }
 
-void level_low::paintEvent(QPaintEvent *event)   //绘画事件
+void level_middle::paintEvent(QPaintEvent *event)   //绘画事件
 {
 //    int I = m + 2, J = n + 2, X = 0, Y = 10;
     Q_UNUSED(event);
@@ -99,14 +99,14 @@ void level_low::paintEvent(QPaintEvent *event)   //绘画事件
 //        Victory();
 }
 
-void level_low::Timeout()  //定时器函数
+void level_middle::Timeout()  //定时器函数
 {
     update();
     qDebug() << 111;
 
 }
 
-void level_low::keyPressEvent(QKeyEvent *event)
+void level_middle::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key())
     {
@@ -145,10 +145,9 @@ void level_low::keyPressEvent(QKeyEvent *event)
     default:
         break;
     }
-
 }
 
-void level_low::Victory()
+void level_middle::Victory()
 {
     QMessageBox::StandardButton result = QMessageBox::information(this,"","VICTORY!\n  本局战绩:\n用时:     \n拾取道具数:     \n被NPC捕捉次数:     ",QMessageBox::Yes);
     switch(result)
@@ -161,12 +160,12 @@ void level_low::Victory()
     }
 }
 
-void level_low::keyReleaseEvent(QKeyEvent *event)
+void level_middle::keyReleaseEvent(QKeyEvent *event)
 {
 
 }
 
-void level_low::on_toolButton_back_clicked()
+void level_middle::on_toolButton_back_clicked()
 {
     //弹窗判断是否确认退出游戏
     QMessageBox::StandardButton result = QMessageBox::question(this,"","是否返回？（将退出本次游戏）",QMessageBox::No|QMessageBox::Yes);
@@ -187,7 +186,7 @@ void level_low::on_toolButton_back_clicked()
     }
 }
 
-void level_low::on_toolButton_close_clicked()
+void level_middle::on_toolButton_close_clicked()
 {
     //弹窗判断是否确认退出游戏
     QMessageBox::StandardButton result = QMessageBox::question(this,"","是否确认退出游戏？",QMessageBox::No|QMessageBox::Yes);
@@ -202,4 +201,3 @@ void level_low::on_toolButton_close_clicked()
         break;
     }
 }
-

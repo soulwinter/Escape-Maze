@@ -1,5 +1,5 @@
-#ifndef LEVEL_LOW_H
-#define LEVEL_LOW_H
+#ifndef LEVEL_MISTY_H
+#define LEVEL_MISTY_H
 
 #include <QWidget>
 //#include "mainwidget.h"
@@ -9,17 +9,18 @@
 #include <QMediaPlayer>
 #include <QLabel>
 //#include <QKeyEvent>
+
 namespace Ui {
-class level_low;
+class level_misty;
 }
 
-class level_low : public QWidget
+class level_misty : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit level_low(QWidget *parent = nullptr);
-    ~level_low();
+    explicit level_misty(QWidget *parent = nullptr);
+    ~level_misty();
     QMediaPlayer *sound;
 protected:
     void mouseMoveEvent(QMouseEvent *e);//鼠标移动
@@ -27,23 +28,23 @@ protected:
     void mouseReleaseEvent(QMouseEvent *e);//鼠标释放
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
+    void paintEvent(QPaintEvent *event);
     void Victory();
+    void Timeout();
 private slots:
     void on_toolButton_back_clicked();
 
     void on_toolButton_close_clicked();
 
-    void Timeout();
 private:
-    Ui::level_low *ui;
+    Ui::level_misty *ui;
     QPoint p;
     bool isPressing = false;
     QTimer *timer;
-    void paintEvent(QPaintEvent *event);
     QLabel *picLabel;
 
 
-    int m  = 15, n = 15;//墙的边界
+    int m  = 49, n = 49;//墙的边界
     int x , y;//墙的界限
     vector<block> myblock;//存储待处理的墙
     int x_num = 1, y_num = 1;//玩家起始位置
@@ -53,6 +54,7 @@ private:
     int sizeOfRec = 850 / I;
     int pix_x;
     int pix_y;
+    int canSee = 5;
 };
 
-#endif // LEVEL_LOW_H
+#endif // LEVEL_MISTY_H
